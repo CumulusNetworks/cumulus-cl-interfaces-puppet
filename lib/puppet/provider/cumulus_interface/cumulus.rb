@@ -1,4 +1,4 @@
-require 'cumulus/ifupdown2'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'cumulus', 'ifupdown2.rb'))
 Puppet::Type.type(:cumulus_interface).provide :cumulus do
   confine operatingsystem: [:cumuluslinux]
 

@@ -1,5 +1,5 @@
 require 'puppet/parameter/boolean'
-require 'cumulus/utils'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'cumulus', 'utils.rb'))
 Puppet::Type.newtype(:cumulus_bridge) do
   desc 'Config cumulus bridge interface'
   include Cumulus::Utils

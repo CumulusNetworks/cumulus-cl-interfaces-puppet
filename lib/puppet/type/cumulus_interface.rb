@@ -1,4 +1,4 @@
-require 'cumulus/utils'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'cumulus', 'utils.rb'))
 require 'set'
 require 'puppet/parameter/boolean'
 Puppet::Type.newtype(:cumulus_interface) do
