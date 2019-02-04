@@ -156,6 +156,7 @@ cumulus_bridge { 'bridge':
 * `alias_name` - Interface alias.
 * `addr_method` - Address assignment method, `dhcp` or `loopback`. Default is empty (no address method is set).
 * `speed` - The interface link speed.
+* `autoneg` - Link Auto-Negotiation (on/off)
 * `mtu` - The interface Maximum Transmission Unit (MTU).
 * `virtual_ip` - VRR virtual IP address.
 * `virtual_mac` - VRR virtual MAC address.

@@ -10,6 +10,7 @@ describe cl_iface do
       :alias_name,
       :addr_method,
       :speed,
+      :autoneg,
       :mtu,
       :virtual_ip,
       :virtual_mac,

@@ -4,6 +4,7 @@ Puppet::Type.type(:cumulus_interface).provide :cumulus do
 
   def build_desired_config
     config = Ifupdown2Config.new(resource)
+    config.update_autoneg
     config.update_speed
     config.update_addr_method
     config.update_address

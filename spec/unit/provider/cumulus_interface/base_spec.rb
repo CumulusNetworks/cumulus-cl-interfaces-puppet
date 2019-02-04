@@ -13,6 +13,7 @@ describe provider_class do
       name: 'swp1',
       vids: ['1-10', '20'],
       speed: 1000,
+      autoneg: 'on',
       ipv4: '10.1.1.1/24',
       ipv6: ['10:1:1::1/127'],
       addr_method: 'loopback',
@@ -158,6 +159,10 @@ describe provider_class do
     context 'link speed options' do
       subject { confighash['config']['link-speed'] }
       it { is_expected.to eq '1000' }
+    end
+    context 'link auto negotiation' do
+      subject { confighash['config']['link-autoneg'] }
+      it { is_expected.to eq 'on' }
     end
     context 'link duplex options' do
       subject { confighash['config']['link-duplex'] }

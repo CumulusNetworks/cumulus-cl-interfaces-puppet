@@ -123,6 +123,12 @@ class Ifupdown2Config
     @confighash['config']['link-duplex'] = 'full'
   end
 
+  def update_autoneg
+    return if @resource[:autoneg].nil?
+    Puppet.debug "configuring auto negotiation #{@resource[:name]}"
+    @confighash['config']['link-autoneg'] = @resource[:autoneg].to_s
+  end
+
   # updates vrr config in config hash
   def update_vrr
     return if @resource[:virtual_ip].nil?

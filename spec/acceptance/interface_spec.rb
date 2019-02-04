@@ -25,6 +25,7 @@ describe 'interfaces' do
           ipv6                  => ['2001:db8:5678::'],
           #addr_method          => 'static',
           speed                 => '1000',
+          autoneg               => 'on',
           mtu                   => 9000,
           # ifquery doesn't seem to like clagd related parameters on an interface?
           # clagd_enable        => true
@@ -89,6 +90,7 @@ describe 'interfaces' do
       its(:content) { should match(/bridge-vids 1-4094/) }
       its(:content) { should match(/bridge-pvid 1/) }
       its(:content) { should match(/link-speed 1000/) }
+      its(:content) { should match(/link-autoneg on/) }
       its(:content) { should match(/link-duplex full/) }
       its(:content) { should match(/alias interface swp2/) }
       its(:content) { should match(/mstpctl-portnetwork yes/) }

@@ -26,6 +26,7 @@ cumulus_interface { 'br0.1':
 }
 cumulus_interface { "swp33":
    speed => 1000,
+   autoneg => 'off',
    alias_name => "trunk port",
    vids => ["1-10", '12'],
    pvid => 1
