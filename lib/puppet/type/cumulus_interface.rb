@@ -63,6 +63,10 @@ Puppet::Type.newtype(:cumulus_interface) do
     end
   end
 
+  newparam(:fec) do
+    desc 'configure Forward Error Correction. Valid values are baser, rs and off'
+  end
+
   newparam(:mtu) do
     desc 'link mtu. Can be 1500 to 9000 KBs'
     munge do |value|

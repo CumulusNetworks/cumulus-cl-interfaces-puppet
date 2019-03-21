@@ -123,6 +123,12 @@ class Ifupdown2Config
     @confighash['config']['link-duplex'] = 'full'
   end
 
+  def update_fec
+    return if @resource[:fec].nil?
+    Puppet.debug "configuring fec #{@resource[:name]}"
+    @confighash['config']['link-fec'] = @resource[:fec].to_s
+  end
+
   # updates vrr config in config hash
   def update_vrr
     return if @resource[:virtual_ip].nil?

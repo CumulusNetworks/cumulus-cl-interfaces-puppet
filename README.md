@@ -157,6 +157,7 @@ cumulus_bridge { 'bridge':
 * `addr_method` - Address assignment method, `dhcp` or `loopback`. Default is empty (no address method is set).
 * `speed` - The interface link speed.
 * `mtu` - The interface Maximum Transmission Unit (MTU).
+* `fec` - Optionally configure Forward Error Correction for an interface, `baser`, `rs` or `off`.
 * `virtual_ip` - VRR virtual IP address.
 * `virtual_mac` - VRR virtual MAC address.
 * `vids` - Array of VLANs to be configured for a VLAN-aware trunk interface.
