@@ -86,22 +86,22 @@ Puppet::Type.newtype(:cumulus_bond) do
   end
 
   newparam(:mstpctl_portnetwork,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures bridge assurance. Ensure that port is in vlan
     aware mode'
   end
 
   newparam(:mstpctl_bpduguard,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures bpdu guard. Ensure that the port is in vlan
     aware mode'
   end
 
   newparam(:mstpctl_portadminedge,
-           boolean: false,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => false,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures port adminedge.'
   end
 

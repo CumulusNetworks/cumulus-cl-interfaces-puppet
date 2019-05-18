@@ -49,7 +49,7 @@ class Ifupdown2Config
   def hash_to_if
     intf = ''
     cmd = "/sbin/ifquery -i - -t json #{@resource[:name]}"
-    IO.popen(cmd, mode: 'r+') do |ifquery|
+    IO.popen(cmd, :mode => 'r+') do |ifquery|
       ifquery.write([@confighash].to_json)
       ifquery.close_write
       intf = ifquery.read

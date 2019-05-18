@@ -98,28 +98,28 @@ Puppet::Type.newtype(:cumulus_interface) do
   end
 
   newparam(:mstpctl_portnetwork,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures bridge assurance. Ensure that port is in vlan
     aware mode'
   end
 
   newparam(:mstpctl_bpduguard,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures bpdu guard. Ensure that the port is in vlan
     aware mode'
   end
 
   newparam(:mstpctl_portadminedge,
-           boolean: false,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => false,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'configures port adminedge.'
   end
 
   newparam(:clagd_enable,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'enable CLAG on the interface. Interface must be in vlan \
     aware mode. clagd_enable, clagd_peer_ip, clagd_backup_ip,
     clagd_sys_mac must be configured together'

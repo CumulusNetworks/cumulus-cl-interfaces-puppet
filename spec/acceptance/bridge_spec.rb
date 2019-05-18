@@ -38,7 +38,7 @@ describe 'bridges' do
         }
       EOS
 
-      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, :catch_failures => true)
     end
 
     intf_dir = File.join('', 'etc', 'network', 'interfaces.d')
@@ -110,7 +110,7 @@ describe 'bridges' do
         }
       EOS
 
-      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, :catch_failures => true)
     end
 
     intf_dir = File.join('', 'etc', 'network', 'interfaces.d')

@@ -10,20 +10,20 @@ describe provider_class do
     # this is not a valid entry to use in a real scenario..
     # only designed for testing
     @resource = provider_resource.new(
-      name: 'bond0',
-      vids: ['1-10', '20'],
-      ipv4: '10.1.1.1/24',
-      ipv6: ['10:1:1::1/127'],
-      alias_name: 'my int description',
-      virtual_ip: '10.1.1.1/24',
-      virtual_mac: '00:00:5e:00:00:01',
-      mstpctl_bpduguard: true,
-      mstpctl_portnetwork: false,
-      mtu: 9000,
-      lacp_bypass_allow: 1,
-      lacp_bypass_period: 30,
-      lacp_bypass_all_active: 1,
-      slaves: ['bond0-3']
+      :name => 'bond0',
+      :vids => ['1-10', '20'],
+      :ipv4 => '10.1.1.1/24',
+      :ipv6 => ['10:1:1::1/127'],
+      :alias_name => 'my int description',
+      :virtual_ip => '10.1.1.1/24',
+      :virtual_mac => '00:00:5e:00:00:01',
+      :mstpctl_bpduguard => true,
+      :mstpctl_portnetwork => false,
+      :mtu => 9000,
+      :lacp_bypass_allow => 1,
+      :lacp_bypass_period => 30,
+      :lacp_bypass_all_active => 1,
+      :slaves => ['bond0-3']
     )
     @provider = provider_class.new(@resource)
   end
@@ -38,9 +38,9 @@ describe provider_class do
   context 'config changed' do
     before do
       @loc_resource = provider_resource.new(
-        name: 'bond0',
-        slaves: 'bond0-2',
-        vids: ['1-10', '20'])
+        :name => 'bond0',
+        :slaves => 'bond0-2',
+        :vids => ['1-10', '20'])
     end
     context 'config has changed' do
       before do

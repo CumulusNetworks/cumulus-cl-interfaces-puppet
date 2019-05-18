@@ -11,19 +11,19 @@ describe provider_class do
     # this is not a valid entry to use in a real scenario..
     # only designed for testing
     @resource = provider_resource.new(
-      name: 'swp1',
-      vids: ['1-10', '20'],
-      speed: 1000,
-      ipv4: '10.1.1.1/24',
-      ipv6: ['10:1:1::1/127'],
-      addr_method: 'dhcp',
-      alias_name: 'my int description',
-      virtual_ip: '10.1.1.1/24',
-      virtual_mac: '00:00:5e:00:00:01',
-      mstpctl_treeprio: 4096,
-      mtu: 9000,
-      mcsnoop: 1,
-      ports: ['swp1-3', 'bond0']
+      :name => 'swp1',
+      :vids => ['1-10', '20'],
+      :speed => 1000,
+      :ipv4 => '10.1.1.1/24',
+      :ipv6 => ['10:1:1::1/127'],
+      :addr_method => 'dhcp',
+      :alias_name => 'my int description',
+      :virtual_ip => '10.1.1.1/24',
+      :virtual_mac => '00:00:5e:00:00:01',
+      :mstpctl_treeprio => 4096,
+      :mtu => 9000,
+      :mcsnoop => 1,
+      :ports => ['swp1-3', 'bond0']
     )
     @provider = provider_class.new(@resource)
   end
@@ -38,8 +38,8 @@ describe provider_class do
   context 'config changed' do
     before do
       @loc_resource = provider_resource.new(
-        name: 'br0',
-        ports: ['swp1-3'])
+        :name => 'br0',
+        :ports => ['swp1-3'])
     end
     context 'config has changed' do
       before do

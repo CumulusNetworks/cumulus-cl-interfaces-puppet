@@ -10,22 +10,22 @@ describe provider_class do
     # this is not a valid entry to use in a real scenario..
     # only designed for testing
     @resource = provider_resource.new(
-      name: 'swp1',
-      vids: ['1-10', '20'],
-      speed: 1000,
-      ipv4: '10.1.1.1/24',
-      ipv6: ['10:1:1::1/127'],
-      addr_method: 'loopback',
-      alias_name: 'my int description',
-      virtual_ip: '10.1.1.1/24',
-      virtual_mac: '00:00:5e:00:00:01',
-      mstpctl_bpduguard: true,
-      mstpctl_portnetwork: false,
-      mtu: 9000,
-      clagd_enable: true,
-      clagd_sys_mac: '44:38:39:ff:20:94',
-      clagd_peer_ip: '10.1.1.1',
-      clagd_backup_ip: '10.1.2.1'
+      :name => 'swp1',
+      :vids => ['1-10', '20'],
+      :speed => 1000,
+      :ipv4 => '10.1.1.1/24',
+      :ipv6 => ['10:1:1::1/127'],
+      :addr_method => 'loopback',
+      :alias_name => 'my int description',
+      :virtual_ip => '10.1.1.1/24',
+      :virtual_mac => '00:00:5e:00:00:01',
+      :mstpctl_bpduguard => true,
+      :mstpctl_portnetwork => false,
+      :mtu => 9000,
+      :clagd_enable => true,
+      :clagd_sys_mac => '44:38:39:ff:20:94',
+      :clagd_peer_ip => '10.1.1.1',
+      :clagd_backup_ip => '10.1.2.1'
 
     )
     @provider = provider_class.new(@resource)
@@ -60,14 +60,14 @@ describe provider_class do
   context 'config changed' do
     before do
       @loc_resource = provider_resource.new(
-        name: 'swp1',
-        vids: ['1-10', '20'])
+        :name => 'swp1',
+        :vids => ['1-10', '20'])
     end
     context 'has not changed witih single ip address post 2.5.4' do
       before do
         @loc_resource = provider_resource.new(
-          name: 'swp1',
-          ipv4: '10.1.1.1/24'
+          :name => 'swp1',
+          :ipv4 => '10.1.1.1/24'
         )
         # needed to ensure that if_to_hash() exists to get @config.currenthash
         allow(File).to receive(:exist?).and_return(true)
@@ -86,8 +86,8 @@ describe provider_class do
     context 'has not changed with single ip address pre 2.5.4' do
       before do
         @loc_resource = provider_resource.new(
-          name: 'swp1',
-          ipv4: '10.1.1.1/24'
+          :name => 'swp1',
+          :ipv4 => '10.1.1.1/24'
         )
         # needed to ensure that if_to_hash() exists to get @config.currenthash
         allow(File).to receive(:exist?).and_return(true)

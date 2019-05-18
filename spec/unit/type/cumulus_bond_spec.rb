@@ -42,8 +42,8 @@ describe cl_iface do
 
   context 'defaults for' do
     before do
-      @bondtype = cl_iface.new(name: 'bond0',
-                               slaves: ['swp1-2'])
+      @bondtype = cl_iface.new(:name => 'bond0',
+                               :slaves => ['swp1-2'])
     end
     { 'lacp_rate' => 1,
       'min_links' => 1,
@@ -61,18 +61,18 @@ describe cl_iface do
       context 'if not all vrr parameters are set' do
         it do
           expect do
-            cl_iface.new(name: 'bond0',
-                         slaves: 'swp1-2',
-                         virtual_ip: '10.1.1.1/24')
+            cl_iface.new(:name => 'bond0',
+                         :slaves => 'swp1-2',
+                         :virtual_ip => '10.1.1.1/24')
           end.to raise_error
         end
         context 'if all vrr parameters are set' do
           it do
             expect do
-              cl_iface.new(name: 'bond0',
-                           slaves: 'swp1-2',
-                           virtual_ip: '10.1.1.1/24',
-                           virtual_mac: '00:00:5e:00:00:01')
+              cl_iface.new(:name => 'bond0',
+                           :slaves => 'swp1-2',
+                           :virtual_ip => '10.1.1.1/24',
+                           :virtual_mac => '00:00:5e:00:00:01')
             end.to_not raise_error
           end
         end

@@ -45,8 +45,8 @@ describe cl_iface do
   context 'validation' do
     context 'ip address' do
       before do
-        @resource1 = cl_iface.new(name: 'swp1',
-                                  ipv4: '10.1.1.1/24')
+        @resource1 = cl_iface.new(:name => 'swp1',
+                                  :ipv4 => '10.1.1.1/24')
       end
       subject { @resource1.value(:ipv4) }
       it { is_expected.to eq ['10.1.1.1/24'] }
@@ -56,16 +56,16 @@ describe cl_iface do
       context 'if not all vrr parameters are set' do
         it do
           expect do
-            cl_iface.new(name: 'swp1',
-                         virtual_ip: '10.1.1.1/24')
+            cl_iface.new(:name => 'swp1',
+                         :virtual_ip => '10.1.1.1/24')
           end.to raise_error
         end
         context 'if all vrr parameters are set' do
           it do
             expect do
-              cl_iface.new(name: 'swp1',
-                           virtual_ip: '10.1.1.1/24',
-                           virtual_mac: '00:00:5e:00:00:01')
+              cl_iface.new(:name => 'swp1',
+                           :virtual_ip => '10.1.1.1/24',
+                           :virtual_mac => '00:00:5e:00:00:01')
             end.to_not raise_error
           end
         end
@@ -74,22 +74,22 @@ describe cl_iface do
           context 'if not all clag parameters are set' do
             it do
               expect do
-                cl_iface.new(name: 'swp1',
-                             clagd_enable: 'yes')
+                cl_iface.new(:name => 'swp1',
+                             :clagd_enable => 'yes')
               end.to raise_error
             end
           end
           context 'if not configured' do
-            it { expect { cl_iface.new(name: 'swp1') }.to_not raise_error }
+            it { expect { cl_iface.new(:name => 'swp1') }.to_not raise_error }
           end
           context 'if all are configured' do
             it do
               expect do
-                cl_iface.new(name: 'swp1',
-                             clagd_enable: true,
-                             clagd_priority: 2000,
-                             clagd_sys_mac: '44:38:38:ff:00:11',
-                             clagd_peer_ip: '10.1.1.1')
+                cl_iface.new(:name => 'swp1',
+                             :clagd_enable => true,
+                             :clagd_priority => 2000,
+                             :clagd_sys_mac => '44:38:38:ff:00:11',
+                             :clagd_peer_ip => '10.1.1.1')
               end.to_not raise_error
             end
           end
@@ -98,20 +98,20 @@ describe cl_iface do
               context ' is not set' do
                 it do
                   expect do
-                    cl_iface.new(name: 'swp1',
-                                 clagd_backup_ip: '1.1.1.1')
+                    cl_iface.new(:name => 'swp1',
+                                 :clagd_backup_ip => '1.1.1.1')
                   end.to raise_error
                 end
               end
               context 'is set' do
                 it do
                   expect do
-                    cl_iface.new(name: 'swp1',
-                                 clagd_enable: true,
-                                 clagd_priority: 2000,
-                                 clagd_sys_mac: '44:38:38:ff:00:11',
-                                 clagd_peer_ip: '10.1.1.1',
-                                 clagd_backup_ip: '10.1.2.1')
+                    cl_iface.new(:name => 'swp1',
+                                 :clagd_enable => true,
+                                 :clagd_priority => 2000,
+                                 :clagd_sys_mac => '44:38:38:ff:00:11',
+                                 :clagd_peer_ip => '10.1.1.1',
+                                 :clagd_backup_ip => '10.1.2.1')
                   end.to_not raise_error
                 end
               end
@@ -123,20 +123,20 @@ describe cl_iface do
               context ' is not set' do
                 it do
                   expect do
-                    cl_iface.new(name: 'swp1',
-                                 clagd_args: '--vm')
+                    cl_iface.new(:name => 'swp1',
+                                 :clagd_args => '--vm')
                   end.to raise_error
                 end
               end
               context 'is set' do
                 it do
                   expect do
-                    cl_iface.new(name: 'swp1',
-                                 clagd_enable: true,
-                                 clagd_priority: 2000,
-                                 clagd_sys_mac: '44:38:38:ff:00:11',
-                                 clagd_peer_ip: '10.1.1.1',
-                                 clagd_args: '--vm')
+                    cl_iface.new(:name => 'swp1',
+                                 :clagd_enable => true,
+                                 :clagd_priority => 2000,
+                                 :clagd_sys_mac => '44:38:38:ff:00:11',
+                                 :clagd_peer_ip => '10.1.1.1',
+                                 :clagd_args => '--vm')
                   end.to_not raise_error
                 end
               end

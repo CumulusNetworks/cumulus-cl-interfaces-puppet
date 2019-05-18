@@ -101,15 +101,15 @@ Puppet::Type.newtype(:cumulus_bridge) do
   end
 
   newparam(:stp,
-           boolean: true,
-           parent: Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent => Puppet::Parameter::Boolean) do
     desc 'enables spanning tree. default is "on" '
     defaultto true
   end
 
   newparam(:vlan_aware,
-           boolean: true,
-           parent:  Puppet::Parameter::Boolean) do
+           :boolean => true,
+           :parent =>  Puppet::Parameter::Boolean) do
     desc 'enables vlan aware mode. Selects between the
     classic bridge driver and vlan aware bridge driver.
     Only one bridge should be covered in vlan aware mode'

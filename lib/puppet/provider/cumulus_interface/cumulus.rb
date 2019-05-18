@@ -1,6 +1,6 @@
 require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'cumulus', 'ifupdown2.rb'))
 Puppet::Type.type(:cumulus_interface).provide :cumulus do
-  confine operatingsystem: [:cumuluslinux]
+  confine :operatingsystem => [:cumuluslinux]
 
   def build_desired_config
     config = Ifupdown2Config.new(resource)
