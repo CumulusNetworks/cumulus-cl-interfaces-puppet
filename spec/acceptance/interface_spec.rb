@@ -33,6 +33,7 @@ describe 'interfaces' do
           # clagd_sys_mac       => 'aa:bb:cc:dd:ee:ff'
           vids                  => ['1-4094'],
           pvid                  => 1,
+          allow_untagged        => false,
           alias_name            => 'interface swp2',
           virtual_mac           => '11:22:33:44:55:66',
           virtual_ip            => '192.168.10.1',
@@ -88,6 +89,7 @@ describe 'interfaces' do
       its(:content) { should match(/mtu 9000/) }
       its(:content) { should match(/bridge-vids 1-4094/) }
       its(:content) { should match(/bridge-pvid 1/) }
+      its(:content) { should match(/bridge-allow-untagged no/) }
       its(:content) { should match(/link-speed 1000/) }
       its(:content) { should match(/link-duplex full/) }
       its(:content) { should match(/alias interface swp2/) }

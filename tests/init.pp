@@ -28,7 +28,8 @@ cumulus_interface { "swp33":
    speed => 1000,
    alias_name => "trunk port",
    vids => ["1-10", '12'],
-   pvid => 1
+   pvid => 1,
+   allow_untagged => no
 }
 cumulus_interface{ 'loop0':
    addr_method => 'loopback'

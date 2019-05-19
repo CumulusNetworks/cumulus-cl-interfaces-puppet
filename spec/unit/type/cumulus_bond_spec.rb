@@ -14,6 +14,7 @@ describe cl_iface do
       :virtual_mac,
       :vids,
       :pvid,
+      :allow_untagged,
       :location,
       :mstpctl_portnetwork, :mstpctl_bpduguard, :mstpctl_portadminedge,
       :clag_id,

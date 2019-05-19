@@ -22,6 +22,7 @@ describe provider_class do
       mstpctl_bpduguard: true,
       mstpctl_portnetwork: false,
       mtu: 9000,
+      allow_untagged: false,
       clagd_enable: true,
       clagd_sys_mac: '44:38:39:ff:20:94',
       clagd_peer_ip: '10.1.1.1',
@@ -194,6 +195,10 @@ describe provider_class do
     context 'mtu' do
       subject { confighash['config']['mtu'] }
       it { is_expected.to eq '9000' }
+    end
+    context 'bridge allow-untagged' do
+      subject { confighash['config']['bridge-allow-untagged'] }
+      it { is_expected.to eq 'no' }
     end
     context 'clagd_enable' do
       subject { confighash['config']['clagd-enable'] }

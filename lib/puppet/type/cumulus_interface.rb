@@ -92,6 +92,12 @@ Puppet::Type.newtype(:cumulus_interface) do
     end
   end
 
+  newparam(:allow_untagged,
+           boolean: true,
+           parent: Puppet::Parameter::Boolean) do
+    desc 'should untagged frames be transmitted. Only configured on vlan aware ports'
+  end
+
   newparam(:location) do
     desc 'location of interface files'
     defaultto '/etc/network/interfaces.d'

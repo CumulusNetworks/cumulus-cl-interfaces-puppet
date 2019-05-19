@@ -16,6 +16,7 @@ describe cl_iface do
       :virtual_mac,
       :vids,
       :pvid,
+      :allow_untagged,
       :location,
       :mstpctl_treeprio,
       :vlan_aware,

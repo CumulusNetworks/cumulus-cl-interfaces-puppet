@@ -27,6 +27,7 @@ describe 'interfaces' do
           # clag_id              => 1,
           vids                   => ['1-4094'],
           pvid                   => 1,
+          allow_untagged         => false,
           virtual_mac            => '11:22:33:44:55:FF',
           virtual_ip             => '192.168.20.1',
           mstpctl_portnetwork    => true,
@@ -80,6 +81,7 @@ describe 'interfaces' do
       its(:content) { should match(/bond-min-links 2/) }
       its(:content) { should match(/bridge-vids 1-4094/) }
       its(:content) { should match(/bridge-pvid 1/) }
+      its(:content) { should match(/bridge-allow-untagged no/) }
       its(:content) { should match(/alias bond number 1/) }
       its(:content) { should match(/bond-mode balance-alb/) }
       its(:content) { should match(/bond-xmit-hash-policy layer2/) }

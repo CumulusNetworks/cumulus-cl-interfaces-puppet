@@ -7,7 +7,7 @@ Puppet::Type.type(:cumulus_interface).provide :cumulus do
     config.update_speed
     config.update_addr_method
     config.update_address
-    %w(vids pvid).each do |attr|
+    %w(vids pvid allow_untagged).each do |attr|
       config.update_attr(attr, 'bridge')
     end
     config.update_alias_name

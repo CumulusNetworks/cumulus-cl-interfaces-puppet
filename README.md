@@ -161,6 +161,7 @@ cumulus_bridge { 'bridge':
 * `virtual_mac` - VRR virtual MAC address.
 * `vids` - Array of VLANs to be configured for a VLAN-aware trunk interface.
 * `pvid` - Native VLAN for a VLAN-aware trunk interface.
+* `allow_untagged` - Allow untagged frames to be transmited. The default is true.
 * `location` - Location of the configuration snippets directory. Default is `/etc/network/interfaces.d/`.
 * `mstpctl_portnetwork` - Enables bridge assurance on a VLAN-aware trunk.
 * `mstpctl_bpduguard` - Enables BPDU guard on a VLAN-aware trunk.
@@ -196,6 +197,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``virtual_mac`` - VRR virtual MAC address.
 * ``vids`` - Array of VLANs to be configured for a VLAN-aware trunk interface.
 * ``pvid`` - Native VLAN for a VLAN-aware trunk interface.
+* ``allow_untagged`` - Allow untagged frames to be transmited. The default is true.
 * ``location`` - Location of the configuration snippets directory. Default is `/etc/network/interfaces.d/`.
 * ``mstpctl_portnetwork`` - Enable bridge assurance on a VLAN-aware trunk.
 * ``mstpctl_bpduguard`` - Enable BPDU guard on a VLAN-aware trunk.
@@ -225,6 +227,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * `virtual_mac` - VRR virtual MAC address.
 * `vids` - Array of VLANs to be configured for a VLAN-aware trunk interface.
 * `pvid` - Native VLAN for a VLAN-aware trunk interface.
+* `allow_untagged` - Allow untagged frames to be transmited. The default is true.
 * `location` - Location of the configuration snippets directory. Default is `/etc/network/interfaces.d/`.
 * `mcsnoop` -  Enables IGMP/MLD Snooping on the bridge. Default is 0.
 

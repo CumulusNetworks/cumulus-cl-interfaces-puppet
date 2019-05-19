@@ -87,6 +87,12 @@ Puppet::Type.newtype(:cumulus_bridge) do
     end
   end
 
+  newparam(:allow_untagged,
+           boolean: true,
+           parent: Puppet::Parameter::Boolean) do
+    desc 'should untagged frames be transmitted (on the bridge port)'
+  end
+
   newparam(:mcsnoop) do
     desc 'Enables IGMP MLD Snooping on a Bridge'
     newvalues(0, 1)

@@ -85,6 +85,7 @@ describe 'bridges' do
           vlan_aware       => true,
           vids             => ['1-4094'],
           pvid             => 1,
+          allow_untagged   => no,
           ipv4             => ['10.0.100.1/24', '192.168.100.0/16'],
           ipv6             => ['2001:db8:1234::/48'],
           alias_name       => 'new bridge number 3',
@@ -134,6 +135,7 @@ describe 'bridges' do
       its(:content) { should match(/mstpctl-treeprio 4096/) }
       its(:content) { should match(/bridge-pvid 1/) }
       its(:content) { should match(/bridge-vids 1-4094/) }
+      its(:content) { should match(/bridge-allow-untagged no/) }
       its(:content) { should match(%r{address 10.0.100.1/24}) }
       its(:content) { should match(%r{address 192.168.100.0/16}) }
       its(:content) { should match(%r{address 2001:db8:1234::/48}) }

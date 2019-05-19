@@ -8,7 +8,7 @@ Puppet::Type.type(:cumulus_bridge).provide :cumulus do
     config.update_speed
     config.update_addr_method
     config.update_address
-    %w(mcsnoop vids pvid vlan_aware stp).each do |attr|
+    %w(mcsnoop vids pvid allow_untagged vlan_aware stp).each do |attr|
       config.update_attr(attr, 'bridge')
     end
     config.update_alias_name
