@@ -20,6 +20,7 @@ describe provider_class do
       mstpctl_bpduguard: true,
       mstpctl_portnetwork: false,
       mtu: 9000,
+      vrf: 'red',
       lacp_bypass_allow: 1,
       lacp_bypass_period: 30,
       lacp_bypass_all_active: 1,
@@ -108,6 +109,10 @@ describe provider_class do
     context 'mtu' do
       subject { confighash['config']['mtu'] }
       it { is_expected.to eq '9000' }
+    end
+    context 'vrf' do
+      subject { confighash['config']['vrf'] }
+      it { is_expected.to eq 'red' }
     end
     context 'lacp bypass active' do
       subject { confighash['config']['bond-lacp-bypass-all-active'] }

@@ -65,6 +65,10 @@ Puppet::Type.newtype(:cumulus_bridge) do
     end
   end
 
+  newparam(:vrf) do
+    desc 'VRF name the interface should be attached to'
+  end
+
   newparam(:virtual_ip) do
     desc 'virtual IP component of Cumulus Linux VRR config'
   end

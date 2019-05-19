@@ -26,6 +26,7 @@ describe 'interfaces' do
           #addr_method          => 'static',
           speed                 => '1000',
           mtu                   => 9000,
+          vrf                   => 'red',
           # ifquery doesn't seem to like clagd related parameters on an interface?
           # clagd_enable        => true
           # clagd_priority      => 1
@@ -40,6 +41,11 @@ describe 'interfaces' do
           mstpctl_bpduguard     => true,
           mstpctl_portadminedge => true,
           notify                => Service['networking'],
+        }
+
+        cumulus_interface { 'red':
+          vrf_table => 'auto'
+          notify    => Service['networking'],
         }
 
         file { '/etc/network/interfaces':
@@ -86,6 +92,7 @@ describe 'interfaces' do
       its(:content) { should match(/address 192.168.200.1/) }
       its(:content) { should match(/address 2001:db8:5678::/) }
       its(:content) { should match(/mtu 9000/) }
+      its(:content) { should match(/vrf red/) }
       its(:content) { should match(/bridge-vids 1-4094/) }
       its(:content) { should match(/bridge-pvid 1/) }
       its(:content) { should match(/link-speed 1000/) }
@@ -95,6 +102,12 @@ describe 'interfaces' do
       its(:content) { should match(/mstpctl-bpduguard yes/) }
       its(:content) { should match(/mstpctl-portadminedge yes/) }
       its(:content) { should match(/address-virtual/) }
+    end
+
+    describe file("#{intf_dir}/red") do
+      it { should be_file }
+      its(:content) { should match(/iface red/) }
+      its(:content) { should match(/vrf-table auto/) }
     end
   end
 end

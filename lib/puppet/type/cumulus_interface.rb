@@ -70,6 +70,17 @@ Puppet::Type.newtype(:cumulus_interface) do
     end
   end
 
+  newparam(:vrf) do
+    desc 'VRF name the interface should be attached to'
+  end
+
+  newparam(:vrf_table) do
+    desc 'VRF table number or "auto" for a VRF interface'
+    munge do |value|
+      value == 'auto' ? value : @resource.munge_integer(value)
+    end
+  end
+
   newparam(:virtual_ip) do
     desc 'virtual IP component of Cumulus Linux VRR config'
   end

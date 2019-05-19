@@ -11,6 +11,8 @@ describe cl_iface do
       :addr_method,
       :speed,
       :mtu,
+      :vrf,
+      :vrf_table,
       :virtual_ip,
       :virtual_mac,
       :vids,

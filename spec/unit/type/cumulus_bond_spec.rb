@@ -10,6 +10,7 @@ describe cl_iface do
       :alias_name,
       :addr_method,
       :mtu,
+      :vrf,
       :virtual_ip,
       :virtual_mac,
       :vids,

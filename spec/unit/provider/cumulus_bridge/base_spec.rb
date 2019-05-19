@@ -22,6 +22,7 @@ describe provider_class do
       virtual_mac: '00:00:5e:00:00:01',
       mstpctl_treeprio: 4096,
       mtu: 9000,
+      vrf: 'red',
       mcsnoop: 1,
       ports: ['swp1-3', 'bond0']
     )
@@ -116,6 +117,10 @@ describe provider_class do
     context 'mtu config' do
       subject { confighash['config']['mtu'] }
       it { is_expected.to eq '9000' }
+    end
+    context 'vrf config' do
+      subject { confighash['config']['vrf'] }
+      it { is_expected.to eq 'red' }
     end
     context 'mcsnoop' do
       subject { confighash['config']['bridge-mcsnoop'] }

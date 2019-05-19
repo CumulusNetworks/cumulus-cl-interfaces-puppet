@@ -22,6 +22,8 @@ describe provider_class do
       mstpctl_bpduguard: true,
       mstpctl_portnetwork: false,
       mtu: 9000,
+      vrf: 'red',
+      vrf_table: 'auto', # Not really valid
       clagd_enable: true,
       clagd_sys_mac: '44:38:39:ff:20:94',
       clagd_peer_ip: '10.1.1.1',
@@ -195,6 +197,14 @@ describe provider_class do
       subject { confighash['config']['mtu'] }
       it { is_expected.to eq '9000' }
     end
+    context 'vrf' do
+      subject { confighash['config']['vrf'] }
+      it { is_expected.to eq 'red' }
+    end
+    context 'vrf table' do
+      subject { confighash['config']['vrf-table'] }
+      it { is_expected.to eq 'auto' }
+    end
     context 'clagd_enable' do
       subject { confighash['config']['clagd-enable'] }
       it { is_expected.to eq 'yes' }
@@ -212,4 +222,5 @@ describe provider_class do
       it { is_expected.to eq '10.1.2.1' }
     end
   end
+
 end
